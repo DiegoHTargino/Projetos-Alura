@@ -1,0 +1,85 @@
+# Imprime os dados do aluno:
+
+nome = input("Nome do aluno: ").title().strip()
+idade = int(input("Idade do aluno: "))
+email = input("Email: ")
+matricula = int(input("Matrícula: "))
+
+# Validação do Email
+
+email_valido = ('@' in email) and (len(email) > 5) and (not " " in email)
+email_resposta = ""
+
+if email_valido:
+    email_resposta = "Sim"
+else:
+    email_resposta = "Não"
+
+# Validação da Idade
+
+idade_valida = idade > 0 and idade < 120
+idade_resposta = ""
+
+if idade_valida:
+    idade_resposta = "Sim"
+else:
+    idade_resposta = "Não"
+
+
+
+
+# Validação do Nome
+
+nome_valido = len(nome.strip()) > 0
+nome_resposta = ""
+
+if nome_valido:
+    nome_resposta = "Sim"
+else:
+    nome_resposta = "Não"
+
+# Validação geral
+
+dados_valido = (email_valido and idade_valida and nome_valido) # Validação geral
+
+# Converte notas de texto para float
+
+nota1 = float(input("Digite a 1° nota: "))
+nota2 = float(input("Digite a 2° nota: "))
+nota3 = float(input("Digite a 3° nota: "))
+
+# Calcula a média
+
+media = nota1 + nota2 + nota3 / 3
+
+# Interface dos dados
+
+interface = f"""
+{"=" * 50}
+{"DADOS DOS ALUNOS":^50}
+{"=" * 50}
+
+Nome: {nome}
+Idade: {idade}
+Email: {email}
+Matrícula: {matricula}
+
+{"=" * 50}
+{"VALIDAÇÃO DOS DADOS":^50}
+{"=" * 50}
+
+Email é válido? {email_resposta}
+idade é válido? {idade_resposta}
+nome é válido? {nome_resposta}
+
+{"=" * 50}
+{"DADOS DOS ALUNOS":^50}
+{"=" * 50}
+
+Nota 1: {nota1}
+Nota 2: {nota2}
+Nota 3: {nota3}
+Média:  {media:.2f}
+"""
+
+print(interface)
