@@ -1,3 +1,5 @@
+# PROJETO 1 - CADASTRO DE ALUNOS
+
 # Imprime os dados do aluno:
 
 nome = input("Nome do aluno: ").title().strip()
