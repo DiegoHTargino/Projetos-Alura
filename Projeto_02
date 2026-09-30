@@ -1,0 +1,81 @@
+# Projeto 2 - um sistema de gestão de loja
+
+cadastro = True
+nome = "Diego"
+idade = 23
+tem_cadastro = True
+cliente_vip = True
+valor_compra = 150.00
+desconto = 0
+valor_final = 0
+distancia = 300
+
+# verificação de cadastro
+
+if idade >= 18 and tem_cadastro:
+    validade = "Válido"
+else:
+    validade = "Inválido"
+
+if cliente_vip:
+    tem_vip = "Sim"
+else:
+    tem_vip = "Não"
+
+# Desconto de 5% caso cliente VIP
+
+if cliente_vip:
+    desconto = 5/100
+else:
+    desconto = 0
+
+# Aplicação do desconto com base no valor inicial
+
+if valor_compra >= 500:
+    desconto = desconto + 15/100
+    valor_descontado = valor_compra * desconto
+    valor_final = valor_compra - valor_descontado
+elif valor_compra >= 200:
+    desconto = desconto + 10/100
+    valor_descontado = valor_compra * desconto
+    valor_final = valor_compra - valor_descontado
+elif valor_compra >= 100:
+    desconto = desconto + 5/100
+    valor_descontado = valor_compra * desconto
+    valor_final = valor_compra - valor_descontado
+
+# Calculo do frete
+
+if valor_final >= 200:
+    frete = 0.00
+elif distancia > 200:
+    frete = 30.00 
+elif distancia > 50:
+    frete = 20.00 
+else:
+    frete = 10.00
+
+# Apresentação dos dados obtidos:
+
+print(f"""
+{"="*50}
+{"DADOS DO CLIENTE":^50}
+{"="*50}
+Nome: {nome}
+Idade: {idade}
+Cadastro: {validade}
+Cliente Vip: {tem_vip}
+{"="*50}
+{"DADOS DA COMPRA":^50}
+{"="*50}
+Valor da Compra: R$ {valor_compra}
+Desconto: {desconto}
+Valor descontado: R$ {valor_descontado}
+Valor Final: R$ {valor_final}
+{"="*50}
+{"DADOS DO FRETE":^50}
+{"="*50}
+Distância = {distancia} Km
+Frete = R$ {frete}
+{"="*50}
+""")
